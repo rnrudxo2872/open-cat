@@ -24,11 +24,20 @@ export interface IAsset {
   owner: object;
   sell_orders: object;
   creator: object;
-  traits: object;
+  traits: ITrait[];
   last_sale: object;
   top_bid: object;
   listing_date: object;
   is_presale: boolean;
   transfer_fee_payment_token: object;
   transfer_fee: object;
+}
+
+interface ITrait {
+  trait_type: string;
+  value: string;
+  display_type: object;
+  max_value: object;
+  trait_count: number;
+  order: object;
 }

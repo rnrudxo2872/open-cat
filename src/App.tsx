@@ -3,27 +3,12 @@ import { retrieveAssets } from "./api";
 import { useQuery } from "react-query";
 import { IAssets } from "./interfaces/assets.interface";
 import styled from "styled-components";
+import Asset from "./components/Asset";
 
 const MainWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-`;
-
-const AssetWrapper = styled.div`
-  border-radius: 12px;
-  background-color: #d8d1d1c6;
-`;
-
-const AssetTitle = styled.h1`
-  font-size: 25px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-`;
-
-const AssetImage = styled.img`
-  width: 200px;
-  height: auto;
-  padding: 12px;
 `;
 
 function App() {
@@ -36,16 +21,8 @@ function App() {
     <MainWrapper className="App">
       {isLoading
         ? "Now Loading..."
-        : Assets?.assets.map((asset) => (
-            <AssetWrapper>
-              <AssetTitle>{asset.name}</AssetTitle>
-              <AssetImage
-                key={asset.id}
-                src={asset.image_url}
-                alt={asset.description}
-              />
-            </AssetWrapper>
-          ))}
+        : Assets?.assets.map((asset) => <Asset key={asset.id} asset={asset} />)}
+      {isLoading ? null : console.log(Assets)}
     </MainWrapper>
   );
 }
