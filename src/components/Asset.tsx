@@ -18,7 +18,7 @@ function Asset({ asset }: { asset: IAsset }) {
         {asset.traits.map((trait) => (
           <AssetTrait>
             <h1 style={{ fontSize: "12px" }}>{trait.trait_type}</h1>
-            <span style={{ fontSize: "20px" }}>{trait.value}</span>
+            <span style={{ fontSize: "15px" }}>{trait.value}</span>
           </AssetTrait>
         ))}
       </AssetTraitContainer>
