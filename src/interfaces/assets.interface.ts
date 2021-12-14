@@ -41,3 +41,7 @@ interface ITrait {
   trait_count: number;
   order: object;
 }
+
+export interface IAssetImage {
+  image: string;
+}

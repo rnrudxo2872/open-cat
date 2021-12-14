@@ -1,24 +1,32 @@
 import styled from "styled-components";
+import { IAssetImage } from "../interfaces/assets.interface";
 
 export const AssetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   border-radius: 12px;
   background-color: #d8d1d1c6;
-  width: 200px;
-  margin: 15px;
+  overflow: hidden;
+  width: 15vw;
 `;
 
 export const AssetTitle = styled.h1`
-  font-size: 25px;
+  font-size: 16px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgba(141, 138, 139, 0.6);
   border-radius: 12px;
   padding: 10px;
 `;
 
-export const AssetImage = styled.img`
-  width: 150px;
-  height: auto;
-  padding: 12px;
+export const AssetImage = styled.div<IAssetImage>`
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-position: center;
 `;
 
 export const AssetTraitContainer = styled.section`

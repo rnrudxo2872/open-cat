@@ -1,16 +1,17 @@
-import "./App.css";
 import { retrieveAssets } from "./api";
 import { useQuery } from "react-query";
 import { IAssets } from "./interfaces/assets.interface";
 import styled from "styled-components";
 import Asset from "./components/Asset";
 import { GlobalStyle } from "./styleds/global.styled";
+import { useState } from "react";
 
 const MainWrapper = styled.div``;
 
 const AssetSlider = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  width: 100vw;
 `;
 
 const RefreshSvg = styled.svg`
@@ -19,6 +20,7 @@ const RefreshSvg = styled.svg`
 `;
 
 function App() {
+  const [slideIdx, setSlideIdx] = useState(0);
   const {
     isLoading,
     data: Assets,
