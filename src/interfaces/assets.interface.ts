@@ -21,7 +21,7 @@ export interface IAsset {
   collection: object;
   decimals: object;
   token_metadata: object;
-  owner: object;
+  owner: IOwner;
   sell_orders: object;
   creator: object;
   traits: ITrait[];
@@ -31,6 +31,13 @@ export interface IAsset {
   is_presale: boolean;
   transfer_fee_payment_token: object;
   transfer_fee: object;
+}
+
+interface IOwner {
+  user: object;
+  profile_img_url: string;
+  address: string;
+  config: string;
 }
 
 interface ITrait {

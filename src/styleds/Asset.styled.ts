@@ -8,9 +8,40 @@ export const AssetWrapper = styled.div`
   text-align: center;
   justify-content: center;
   border-radius: 12px;
-  background-color: #d8d1d1c6;
   overflow: hidden;
   width: 15vw;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 1px -1px 1px rgba(0, 0, 0, 0.3);
+`;
+
+export const SliderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AssestContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-top: -30px;
+`;
+
+export const AssetOwnerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const OwnerImgWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+`;
+
+export const OwnerImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const AssetTitle = styled.h1`
@@ -27,6 +58,7 @@ export const AssetImage = styled.div<IAssetImage>`
   background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center;
+  border-bottom: 1px solid rgb(229, 232, 235);
 `;
 
 export const AssetTraitContainer = styled.section`

@@ -5,12 +5,14 @@ import styled from "styled-components";
 import Asset from "./components/Asset";
 import { GlobalStyle } from "./styleds/global.styled";
 import { useState } from "react";
+import { SliderContainer } from "./styleds/Asset.styled";
 
 const MainWrapper = styled.div``;
 
 const AssetSlider = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
   width: 100vw;
 `;
 
@@ -50,11 +52,13 @@ function App() {
       {isLoading ? (
         "Now Loading..."
       ) : (
-        <AssetSlider>
-          {Assets?.assets.map((asset) => (
-            <Asset key={asset.id} asset={asset} />
-          ))}
-        </AssetSlider>
+        <SliderContainer>
+          <AssetSlider>
+            {Assets?.assets.slice(slideIdx, slideIdx + 5).map((asset) => (
+              <Asset key={asset.id} asset={asset} />
+            ))}
+          </AssetSlider>
+        </SliderContainer>
       )}
       {isLoading ? null : console.log(Assets)}
     </MainWrapper>
