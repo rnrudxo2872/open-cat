@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { IAssetImage } from "../interfaces/assets.interface";
 
-export const AssetWrapper = styled.div`
+export const AssetWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,9 +15,11 @@ export const AssetWrapper = styled.div`
 `;
 
 export const SliderContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 150px;
 `;
 
 export const AssestContainer = styled.section`

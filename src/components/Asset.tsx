@@ -11,7 +11,7 @@ import {
 
 function Asset({ asset }: { asset: IAsset }) {
   return (
-    <AssetWrapper key={asset.id}>
+    <AssetWrapper key={asset.id} layoutId={asset.id + ""}>
       <AssetImage image={asset.image_url} />
       <AssestContainer>
         <AssetOwnerContainer>
