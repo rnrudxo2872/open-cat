@@ -75,7 +75,7 @@ function App() {
           "Now Loading..."
         ) : (
           <SliderContainer>
-            <AnimatePresence onExitComplete={ToggleSliding}>
+            <AnimatePresence initial={false} onExitComplete={ToggleSliding}>
               <AssetSlider
                 custom={nowWidth}
                 variants={AssetWrapperVariant}
