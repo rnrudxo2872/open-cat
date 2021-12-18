@@ -7,11 +7,11 @@ export const AssetWrapperVariant: Variants = {
       duration: 1,
     },
   },
-  init: (nowWidth) => ({
-    x: nowWidth + 12,
+  init: (customData) => ({
+    x: (customData.nowWidth + 12) * (customData.isBack ? -1 : 1),
   }),
-  exit: (nowWidth) => ({
-    x: -nowWidth - 12,
+  exit: (customData) => ({
+    x: (-customData.nowWidth - 12) * (customData.isBack ? -1 : 1),
     transition: {
       duration: 1,
     },

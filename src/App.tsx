@@ -43,6 +43,7 @@ function App() {
   const [slideIdx, setSlideIdx] = useState(0);
   const [nowWidth, setNowWidth] = useState(window.innerWidth);
   const [nowSliding, setNowSliding] = useState(false);
+  const [isBack, setIsBack] = useState(false);
   const {
     isLoading,
     data: Assets,
@@ -65,11 +66,20 @@ function App() {
     if (nowSliding) return;
     if (Assets) {
       setNowSliding(true);
+      setIsBack(false);
       setSlideIdx((prev) => (Assets.assets.length - 6 <= prev ? 0 : prev + 5));
     }
   };
+  const OnClickPrev = () => {
+    if (nowSliding) return;
+    if (Assets) {
+      setNowSliding(true);
+      setIsBack(true);
+      setSlideIdx((prev) => (prev === 0 ? Assets.assets.length - 6 : prev - 5));
+    }
+  };
   const ToggleSliding = () => setNowSliding(false);
-
+  console.log(isBack);
   return (
     <MainWrapper className="App">
       <GlobalStyle />
@@ -98,9 +108,13 @@ function App() {
           "Now Loading..."
         ) : (
           <SliderContainer>
-            <AnimatePresence initial={false} onExitComplete={ToggleSliding}>
+            <AnimatePresence
+              initial={false}
+              onExitComplete={ToggleSliding}
+              custom={{ nowWidth, isBack }}
+            >
               <AssetSlider
-                custom={nowWidth}
+                custom={{ nowWidth, isBack }}
                 variants={AssetWrapperVariant}
                 initial="init"
                 animate="after"
@@ -116,6 +130,7 @@ function App() {
         )}
         {isLoading ? null : console.log(Assets)}
       </div>
+      <button onClick={OnClickPrev}>previous</button>
       <button onClick={OnClickNext}>next</button>
     </MainWrapper>
   );
